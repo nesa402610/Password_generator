@@ -64,13 +64,18 @@ const App = () => {
             setIncludes(includes + char);
         }
     };
-
+    const clickToCopy = () => {
+    navigator.clipboard.writeText(password)
+    };
     return (
         <div className={'flex flex-col text-stone-500 items-center'} style={{minWidth: 400}}>
             <h1 className={'text-lg'}>Password generator</h1>
             <div className={'flex flex-col text-stone-400 w-full'}>
-                <div className={'bg-stone-700 p-4 mb-4'}>
+                <div className={'bg-stone-700 p-4 mb-4 cursor-pointer flex justify-between'}>
                     {password}
+                    <div className={'transition-colors hover:text-white'} onClick={() => clickToCopy()}>
+                        Copy
+                    </div>
                 </div>
                 <div className={'bg-stone-700 p-4'}>
                     <div className={'flex justify-between'}>
